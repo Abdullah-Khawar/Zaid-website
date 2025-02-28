@@ -14,7 +14,7 @@ import { Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute"; // Import the ProtectedRoute component
 
 
-// Pages
+// Pages for vercel
 import HomePage from "./customer/components/pages/Home/HomePage";
 import ProductDisplayPage from "./customer/components/pages/Home/ProductDisplayPage";
 import Layout from "./customer/components/Layout";
