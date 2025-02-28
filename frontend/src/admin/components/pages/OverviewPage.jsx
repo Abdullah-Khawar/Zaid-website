@@ -8,7 +8,6 @@ import CategoryDistributionChart from "../components/overview/CategoryDistributi
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { toast } from "react-toastify";
 
-import backendUrl from "../../../assets/assets"
 
 
 
@@ -19,7 +18,7 @@ const OverviewPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [orderStats, setOrderStats] = useState(null);
-
+  const backendUrl = import.meta.env.BACKEND_URL
   // Fetch users from the backend
   useEffect(() => {
     const fetchUsers = async () => {

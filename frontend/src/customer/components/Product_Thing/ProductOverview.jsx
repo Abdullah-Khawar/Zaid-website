@@ -14,7 +14,7 @@ import {
 } from "@headlessui/react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
-import { backendUrl } from "../../../assets/assets";
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -36,6 +36,8 @@ function ProductOverview() {
   });
   const [selectedColorData, setSelectedColorData] = useState(null);
   const [showSizeChart, setShowSizeChart] = useState(false);
+
+  const backendUrl = import.meta.env.BACKEND_URL
 
   useEffect(() => {
     const fetchProduct = async () => {

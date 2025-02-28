@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { backendUrl } from "../../../../assets/assets";
+
 const UserProfile = () => {
   const [user, setUser] = useState(null); // Initially null
   const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const backendUrl = import.meta.env.BACKEND_URL
+  
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {

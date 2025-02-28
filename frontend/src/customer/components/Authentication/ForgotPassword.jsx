@@ -12,8 +12,7 @@ function ForgotPassword() {
     setEmail(e.target.value);
   };
 
-  const API_URL = import.meta.env.VITE_API_URL;
-  
+  const backendUrl = import.meta.env.BACKEND_URL
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
@@ -21,7 +20,7 @@ function ForgotPassword() {
 
     
     try {
-      const response = await fetch(`${API_URL}/auth/reset-password-request`, {
+      const response = await fetch(`${backendUrl}/auth/reset-password-request`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email }),

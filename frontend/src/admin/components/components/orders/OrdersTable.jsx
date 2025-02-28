@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Search, Eye } from "lucide-react";
 import { Dialog, DialogActions, DialogContent, DialogTitle, Typography, Button, MenuItem, Select } from "@mui/material"; // Added Select & MenuItem
-import { backendUrl } from "../../../../assets/assets";
+
 const OrdersTable = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [allOrders, setAllOrders] = useState([]); 
@@ -10,7 +10,8 @@ const OrdersTable = () => {
   const [selectedOrder, setSelectedOrder] = useState(null); 
   const [openModal, setOpenModal] = useState(false);
   const [statusFilter, setStatusFilter] = useState(""); // State for status filter
-
+  const backendUrl = import.meta.env.BACKEND_URL
+  
   useEffect(() => {
     const fetchOrders = async () => {
       try {

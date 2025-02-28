@@ -8,12 +8,14 @@ import {
   UserIcon,
   ClipboardDocumentListIcon,
 } from "@heroicons/react/24/outline";
-import { backendUrl } from "../../../assets/assets";
+
 
 export default function ProfileDropdown() {
   const dispatch = useDispatch();
   const navigate = useNavigate(); // Initialize useNavigate
 
+  const backendUrl = import.meta.env.BACKEND_URL
+  
   const handleLogout = async () => {
     try {
       await fetch(`${backendUrl}/auth/logout`, { method: "POST", credentials: "include" });

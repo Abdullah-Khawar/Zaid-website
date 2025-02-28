@@ -7,12 +7,11 @@ import Header from "../components/common/Header";
 import StatCard from "../components/common/StatCard";
 import UsersTable from "../components/users/UsersTable"; 
 import UserGrowthChart from "../components/users/UserGrowthChart";
-import backendUrl from "../../../assets/assets"
 
 const UsersPage = () => {
   const [userList, setUserList] = useState([]);
   // const API_URL = "http://localhost:5000/admin/getUsers"; 
-
+  const backendUrl = import.meta.env.BACKEND_URL
   // Fetch users from the backend
   useEffect(() => {
     const fetchUsers = async () => {

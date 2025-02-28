@@ -5,14 +5,14 @@ import StatCard from "../components/common/StatCard";
 import { DollarSign } from "lucide-react";
 import SalesTrendChart from "../components/sales/SalesTrendChart";
 import SalesByCategoryChart from "../components/sales/SalesByCategoryChart";
-import backendUrl from "../../../assets/assets"
 
 const SalesPage = () => {
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
   const [salesDataByYear, setSalesDataByYear] = useState([]);
   const [totalRevenue, setTotalRevenue] = useState(0);
   const [loading, setLoading] = useState(true);
-
+  const backendUrl = import.meta.env.BACKEND_URL
+  
   useEffect(() => {
     const fetchSalesData = async () => {
       try {

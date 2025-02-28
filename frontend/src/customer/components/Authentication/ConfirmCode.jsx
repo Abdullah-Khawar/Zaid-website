@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { backendUrl } from "../../../assets/assets";
+
 function ConfirmCode() {
   const [code, setCode] = useState("");
   const [error, setError] = useState(null);
@@ -8,7 +8,7 @@ function ConfirmCode() {
   const [resending, setResending] = useState(false);
   const [timer, setTimer] = useState(60); // 1-minute timer
   const navigate = useNavigate();
-  
+  const backendUrl = import.meta.env.BACKEND_URL
   // Retrieve email from session storage
   const email = sessionStorage.getItem("resetEmail");
 

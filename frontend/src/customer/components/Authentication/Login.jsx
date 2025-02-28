@@ -28,13 +28,13 @@ function Login() {
     });
   };
  
-  const API_URL = import.meta.env.VITE_API_URL;
+  const backendUrl = import.meta.env.BACKEND_URL
 
   const handleSubmit = async (e) => {
     e.preventDefault();
   
     try {
-      const response = await fetch(`${API_URL}/auth/login`, {
+      const response = await fetch(`${backendUrl}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

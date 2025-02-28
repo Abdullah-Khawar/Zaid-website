@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { backendUrl } from "../../../assets/assets";
+
 function ProductCard({ product }) {
+
+  const backendUrl = import.meta.env.BACKEND_URL
+  
   // Ensure product.price is a string before using .replace()
   const originalPrice = product?.price
     ? parseFloat(String(product.price).replace("$", ""))

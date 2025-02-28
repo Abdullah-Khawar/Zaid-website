@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts";
-import { backendUrl } from "../../../../assets/assets";
+
 const COLORS = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#FED766"];
 
 const OrderDistribution = () => {
   const [orderStatusData, setOrderStatusData] = useState([]);
 
+  const backendUrl = import.meta.env.BACKEND_URL
+  
   const fetchOrderStatusDistribution = async () => {
     try {
       const response = await fetch(`${backendUrl}/orders/order-status-distribution`);

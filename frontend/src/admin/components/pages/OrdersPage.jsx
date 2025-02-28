@@ -7,13 +7,12 @@ import StatCard from "../components/common/StatCard";
 import DailyOrders from "../components/orders/DailyOrders";
 import OrderDistribution from "../components/orders/OrderDistribution";
 import OrdersTable from "../components/orders/OrdersTable";
-import backendUrl from "../../../assets/assets"
 
 const OrdersPage = () => {
   const [orderStats, setOrderStats] = useState(null);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const backendUrl = import.meta.env.BACKEND_URL
   useEffect(() => {
     const fetchOrderData = async () => {
       try {

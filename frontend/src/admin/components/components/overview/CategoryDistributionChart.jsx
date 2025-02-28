@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { useState, useEffect } from "react";
-import { backendUrl } from "../../../../assets/assets";
+
 
 const COLORS = ["#6366F1", "#8B5CF6"]; // Color for Clothing and Non-Clothing categories
 
@@ -9,7 +9,7 @@ const CategoryDistributionChart = () => {
   const [categoryData, setCategoryData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const backendUrl = import.meta.env.BACKEND_URL
   useEffect(() => {
     const fetchCategoryData = async () => {
       try {

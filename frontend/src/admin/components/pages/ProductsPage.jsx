@@ -7,7 +7,6 @@ import ProductsTable from "../components/products/ProductsTable";
 import StockTable from "../components/products/StockTable";
 import { orderHistoryData } from "../components/customer/CustomerOrdersData";
 import getSalesByYearAndMonth from "../components/sales/GetSalesByYearAndMonth";
-import backendUrl from "../../../assets/assets"
 
 const ProductsPage = () => {
   const [orderHistory, setOrderHistory] = useState([]);
@@ -15,7 +14,7 @@ const ProductsPage = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+  const backendUrl = import.meta.env.BACKEND_URL
   const fetchProducts = useCallback(async () => {
     setLoading(true);
     setError(""); // Reset error before fetching

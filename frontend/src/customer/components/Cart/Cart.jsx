@@ -12,7 +12,6 @@ import {
   fetchCartItems,
 } from "../../../reduxStore/features/userSlice";
 import { toast } from "react-toastify";
-import { backendUrl } from "../../../assets/assets";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -20,7 +19,8 @@ const ShoppingCart = () => {
   const loggedInUser = useSelector((state) => state.user.loggedInUser);
   const cartItems = useSelector((state) => state.cart.cartItems || []); // Default to empty array
   const customerOrders = useSelector((state) => state.user.customerOrders);
- 
+  const backendUrl = import.meta.env.BACKEND_URL
+  
   // Function to move to the next step
   const handleNextStep = async () => {
     try {

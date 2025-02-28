@@ -6,7 +6,6 @@ import { Select, MenuItem, IconButton } from "@mui/material";
 import CancelIcon from '@mui/icons-material/Cancel';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import backendUrl from "../../../assets/assets"
 
 const colorOptions = [
   "red",
@@ -46,6 +45,8 @@ const AddProduct = ({ handleClose }) => {
       { category: "Return Policy", items: [] },
     ],
   });
+
+  const backendUrl = import.meta.env.BACKEND_URL
 
   const sizes = ["XS", "S", "M", "L", "XL"];
 

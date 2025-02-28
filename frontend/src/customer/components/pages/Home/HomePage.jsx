@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MainCarousel from "../../HomeCarousel/MainCarousel";
 import HomeSectionCarousel from "../../HomeSectionCarousel/HomeSectionCarousel";
-import { backendUrl } from "../../../../assets/assets";
+
 function HomePage() {
   const [menClothingProducts, setMenClothingProducts] = useState([]);
   const [womenClothingProducts, setWomenClothingProducts] = useState([]);
   const [otherProducts, setOtherProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const backendUrl = import.meta.env.BACKEND_URL
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {

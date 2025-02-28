@@ -12,7 +12,6 @@ import {
 import { Save, Cancel, Add, Delete, Edit } from "@mui/icons-material";
 import CancelIcon from '@mui/icons-material/Cancel';
 import { useState, useEffect } from "react";
-import backendUrl from "../../../assets/assets"
 
 const categories = ["Clothes", "Accessories"];
 const subCategories = [
@@ -58,7 +57,8 @@ const EditPopUp = ({ open, handleClose, product, setProducts }) => {
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  const backendUrl = import.meta.env.BACKEND_URL
+  
   useEffect(() => {
     setEditedProduct({ ...product });
   }, [product]);

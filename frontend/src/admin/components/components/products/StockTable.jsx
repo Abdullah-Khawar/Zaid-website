@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useMemo, useState, useEffect } from "react";
 import { orderHistoryData } from "../customer/CustomerOrdersData";
 import getSalesByYearAndMonth from "../sales/GetSalesByYearAndMonth";
-import { backendUrl } from "../../../../assets/assets";
+
 
 const StockTable = () => {
   const [orderHistory, setOrderHistory] = useState([]);
@@ -11,6 +11,8 @@ const StockTable = () => {
   const [products, setProducts] = useState([]); // State to hold the products data
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(''); // Error state
+
+  const backendUrl = import.meta.env.BACKEND_URL
 
   // Get sales data by year and month
   const salesDataByYear = useMemo(() => getSalesByYearAndMonth(orderHistoryData), [orderHistoryData]);

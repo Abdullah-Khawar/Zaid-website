@@ -4,7 +4,7 @@ import { setCurrentStep } from "../../../reduxStore/features/userSlice";
 import citiesByProvince from "./citiesByProvince";
 import paymentMethods from "./paymentMethods";
 import { setCartItems } from "../../../reduxStore/features/cartSlice";
-import { backendUrl } from "../../../assets/assets";
+
 import CryptoJS from "crypto-js";
 
 
@@ -28,7 +28,7 @@ const Checkout = () => {
   const cartItems = useSelector((state) => state.cart.cartItems || []);
   const customerOrders = useSelector((state) => state.user.customerOrders);
   const dispatch = useDispatch();
-
+  const backendUrl = import.meta.env.BACKEND_URL
   const [shippingPrice, setShippingPrice] = useState(0);
 
   // Fetch Shipping Price when Province or City changes

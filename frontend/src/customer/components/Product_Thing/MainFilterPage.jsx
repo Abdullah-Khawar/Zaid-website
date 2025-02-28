@@ -39,10 +39,10 @@ export default function MainFilterPage() {
   const [selectedSortOption, setSelectedSortOption] = useState(sortOptions[0]); // Default to "Most Popular"
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
-  
+  const backendUrl = import.meta.env.BACKEND_URL
   const fetchProducts = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:5000/products'); // Backend URL
+      const response = await fetch(`${backendUrl}/products`); // Backend URL
 
       if (!response.ok) {
         throw new Error('Failed to fetch products');

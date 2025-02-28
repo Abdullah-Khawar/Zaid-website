@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
-import { backendUrl } from "../../../../assets/assets";
+
 const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff8042", "#0088FE"];
 
 const SalesByCategoryChart = () => {
@@ -9,6 +9,8 @@ const SalesByCategoryChart = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const backendUrl = import.meta.env.BACKEND_URL
+  
 useEffect(() => {
   const fetchSalesData = async () => {
     try {
