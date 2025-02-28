@@ -13,7 +13,6 @@ const provinces = [
   "Azad_Kashmir",
   "Islamabad"
 ];
-import backendUrl from "../../../assets/assets"
 
 const ShippingPriceControl = () => {
   const [province, setProvince] = useState("Punjab");
@@ -22,7 +21,7 @@ const ShippingPriceControl = () => {
   const [shippingPrices, setShippingPrices] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [editingId, setEditingId] = useState(null);
-
+  const backendUrl = import.meta.env.BACKEND_URL
   useEffect(() => {
     const fetchShippingPrices = async () => {
       try {
