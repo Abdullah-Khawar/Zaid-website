@@ -4,6 +4,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 import carouselImagesData from './carouselImagesData';
 
+
 const responsive = {
   0: { items: 1 },
   568: { items: 1 },

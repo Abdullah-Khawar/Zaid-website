@@ -28,6 +28,7 @@ const colorOptions = [
 ];
 const sizesAvailable = ["XS", "S", "M", "L", "XL"];
 
+
 const EditPopUp = ({ open, handleClose, product, setProducts }) => {
   const [editedProduct, setEditedProduct] = useState({ ...product });
   console.log(editedProduct);

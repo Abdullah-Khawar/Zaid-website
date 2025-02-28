@@ -1,5 +1,6 @@
 export const orderHistoryData = [
   {
+    
     customerId: 1,
     customerName: 'John Doe',
     customerEmail: 'john.doe@example.com',

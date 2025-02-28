@@ -3,6 +3,7 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recha
 import { useState, useEffect } from "react";
 
 
+
 const COLORS = ["#6366F1", "#8B5CF6"]; // Color for Clothing and Non-Clothing categories
 
 const CategoryDistributionChart = () => {

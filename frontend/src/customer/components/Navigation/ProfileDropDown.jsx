@@ -16,6 +16,7 @@ export default function ProfileDropdown() {
 
   const backendUrl = import.meta.env.BACKEND_URL
   
+  
   const handleLogout = async () => {
     try {
       await fetch(`${backendUrl}/auth/logout`, { method: "POST", credentials: "include" });

@@ -5,4 +5,5 @@ const paymentMethods = [
     { id: "sadapay", name: "Sadapay", description: "Pay using Sadapay" }
   ]
 
+  
 export default paymentMethods;

@@ -4,6 +4,7 @@ import { orderHistoryData } from "../customer/CustomerOrdersData";
 import getSalesByYearAndMonth from "../sales/GetSalesByYearAndMonth";
 
 
+
 const StockTable = () => {
   const [orderHistory, setOrderHistory] = useState([]);
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());

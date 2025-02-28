@@ -53,6 +53,7 @@ const Checkout = () => {
     }
   }, [userDetails.province, userDetails.city]);
 
+  
   // Calculate Grand Total including Shipping
   const calculateGrandTotal = () => {
     return calculateTotal() + shippingPrice;

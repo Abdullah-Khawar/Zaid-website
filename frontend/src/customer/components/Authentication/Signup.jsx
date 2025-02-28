@@ -12,6 +12,7 @@ function Signup() {
     acceptTerms: false,
   });
 
+  
   const navigate = useNavigate(); // Use the hook to navigate programmatically
 
   const handleChange = (e) => {

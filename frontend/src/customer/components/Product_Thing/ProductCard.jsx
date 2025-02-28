@@ -29,6 +29,7 @@ function ProductCard({ product }) {
     : null;
   
 
+    
   // const firstColorImageSrc = `/products/Clothes/Men-Stitched/67a4d71a6c43b52288dbbbd9/green/8c7cff4c-2267-4b58-b742-16554fa8c9cd-2.jpg`;
 
 

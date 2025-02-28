@@ -7,6 +7,7 @@ export const fetchUserData = createAsyncThunk("user/fetchUserData", async (_, { 
       credentials: "include", // Ensures cookies (token) are sent
     });
 
+    
     if (!response.ok) {
       if (response.status === 401) {
         return rejectWithValue({ message: "Unauthorized", status: 401 });

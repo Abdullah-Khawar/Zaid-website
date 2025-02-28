@@ -7,6 +7,7 @@ import { Button } from "@mui/material";
 import { Link } from "react-router-dom"; // Import Link
 
 
+
 function HomeSectionCarousel({ sectionName, dummyData }) {
   const responsive = {
     0: {

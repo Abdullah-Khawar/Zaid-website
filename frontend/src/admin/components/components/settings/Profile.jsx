@@ -1,6 +1,7 @@
 import { User } from "lucide-react";
 import SettingSection from "./SettingSection";
 
+
 const Profile = () => {
 	return (
 		<SettingSection icon={User} title={"Profile"}>

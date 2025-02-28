@@ -10,5 +10,6 @@ const sizeData = {
     ],
   };
   
+  
   export default sizeData;
   

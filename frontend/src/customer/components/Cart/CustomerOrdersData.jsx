@@ -9,6 +9,7 @@ export const customerOrders =
       customerAddress: '123 Main St, Springfield, IL',
 
 
+      
       orderId: 'ORD12345', // Unique order ID
       orderDate: '2025-01-28', // Date of the order
       orderStatus: 'Processing', // Order status (e.g., Processing, Shipped, Delivered)

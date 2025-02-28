@@ -1,6 +1,7 @@
 export const initialProducts = [
   {
     id: 1,
+    
     name: 'Basic Tee 6-Pack (Men)',
     href: '#',
     price: '192',

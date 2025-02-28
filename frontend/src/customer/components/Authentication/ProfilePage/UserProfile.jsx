@@ -7,6 +7,7 @@ const UserProfile = () => {
   const [error, setError] = useState(null);
   const backendUrl = import.meta.env.BACKEND_URL
   
+  
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {

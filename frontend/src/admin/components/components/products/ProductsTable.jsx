@@ -5,6 +5,7 @@ import EditPopUp from "../../pages/EditPopUp";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 const ProductsTable = ({products}) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [product, setProducts] = useState([]);

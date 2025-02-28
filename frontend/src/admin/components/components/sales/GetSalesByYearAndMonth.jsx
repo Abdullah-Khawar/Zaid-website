@@ -2,6 +2,7 @@
 const getSalesByYearAndMonth = (orderHistoryData) => {
     const salesByYear = {};
   
+    
     orderHistoryData.forEach(customer => {
       customer.orders.forEach(order => {
         if (order.orderStatus === "delivered") {

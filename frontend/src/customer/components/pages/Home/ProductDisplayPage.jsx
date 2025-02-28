@@ -7,6 +7,7 @@ function ProductDisplayPage() {
   return (
     <div>
 
+
         <MainFilterPage/>
         
 

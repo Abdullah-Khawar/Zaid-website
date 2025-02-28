@@ -5,6 +5,7 @@ import { Field, Label, Switch } from '@headlessui/react'
 export default function Contact() {
   const [agreed, setAgreed] = useState(false)
 
+  
   return (
     <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

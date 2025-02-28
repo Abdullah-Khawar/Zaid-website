@@ -2,6 +2,7 @@ import React from "react";
 import { Grid2, IconButton } from "@mui/material";
 import { Facebook, Instagram, LinkedIn, X as XIcon } from "@mui/icons-material";
 
+
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-400" >

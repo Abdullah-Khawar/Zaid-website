@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 
+
 const SettingSection = ({ icon: Icon, title, children }) => {
 	return (
 		<motion.div

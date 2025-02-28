@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts";
 
+
 const COLORS = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#FED766"];
 
 const OrderDistribution = () => {

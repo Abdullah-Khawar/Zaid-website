@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute"; // Import the ProtectedRoute component
 
+
 // Pages
 import HomePage from "./customer/components/pages/Home/HomePage";
 import ProductDisplayPage from "./customer/components/pages/Home/ProductDisplayPage";

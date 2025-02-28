@@ -12,6 +12,7 @@ function ConfirmCode() {
   // Retrieve email from session storage
   const email = sessionStorage.getItem("resetEmail");
 
+  
   useEffect(() => {
     if (timer > 0) {
       const countdown = setTimeout(() => setTimer(timer - 1), 1000);

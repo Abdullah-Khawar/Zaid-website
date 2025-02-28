@@ -18,7 +18,8 @@ const ProductsPage = () => {
   const fetchProducts = useCallback(async () => {
     setLoading(true);
     setError(""); // Reset error before fetching
-  
+
+    
     try {
       const response = await fetch(`${backendUrl}/products`);
   

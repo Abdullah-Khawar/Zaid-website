@@ -44,6 +44,7 @@ export default function MainFilterPage() {
     try {
       const response = await fetch(`${backendUrl}/products`); // Backend URL
 
+      
       if (!response.ok) {
         throw new Error('Failed to fetch products');
       }

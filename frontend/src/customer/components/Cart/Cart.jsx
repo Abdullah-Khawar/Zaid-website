@@ -21,6 +21,7 @@ const ShoppingCart = () => {
   const customerOrders = useSelector((state) => state.user.customerOrders);
   const backendUrl = import.meta.env.BACKEND_URL
   
+  
   // Function to move to the next step
   const handleNextStep = async () => {
     try {

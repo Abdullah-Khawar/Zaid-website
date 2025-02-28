@@ -10,6 +10,7 @@ const SearchPage = () => {
   const [searchParams] = useSearchParams(); // Get the search query from URL
   const navigate = useNavigate(); // To navigate to product page
 
+  
   // Set query based on the URL when the component mounts or the search changes
   useEffect(() => {
     const searchQuery = searchParams.get('q') || ''; // Extract query parameter

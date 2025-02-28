@@ -5,6 +5,7 @@ function HomeCard({ cardWidth, cardHeight, fontSizeTitle, fontSizeDescription, d
   const originalPrice = parseFloat(data.price); 
   const discountedPrice = data.discountedPrice ? parseFloat(data.discountedPrice) : originalPrice;
 
+  
   return (
     <div
       className="flex flex-col items-center justify-between bg-white shadow-md rounded-lg overflow-hidden relative"

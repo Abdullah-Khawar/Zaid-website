@@ -13,6 +13,7 @@ const SalesPage = () => {
   const [loading, setLoading] = useState(true);
   const backendUrl = import.meta.env.BACKEND_URL
   
+  
   useEffect(() => {
     const fetchSalesData = async () => {
       try {

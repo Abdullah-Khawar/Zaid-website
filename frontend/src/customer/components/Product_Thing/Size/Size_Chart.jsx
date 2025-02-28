@@ -11,6 +11,7 @@ function Size_Chart() {
               <th key={index} className="border border-gray-400 px-2 py-1">
                 {header}
               </th>
+              
             ))}
           </tr>
         </thead>

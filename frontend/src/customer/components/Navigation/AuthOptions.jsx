@@ -7,6 +7,7 @@ export default function AuthOptions() {
 
 console.log("USER ",loggedInUser);
 
+
   return (
     loggedInUser ? (
       <ProfileDropdown />

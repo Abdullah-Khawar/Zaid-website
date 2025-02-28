@@ -5,6 +5,7 @@ import { getUserGrowthByYearAndMonth } from "./getUserGrowthByYearAndMonth";
 import { backendUrl } from "../../../../assets/assets";
 const API_URL = `${backendUrl}/admin/getUsers`;
 
+
 const UserGrowthChart = () => {
     const [userGrowthData, setUserGrowthData] = useState([]);
     const [selectedYear, setSelectedYear] = useState("");

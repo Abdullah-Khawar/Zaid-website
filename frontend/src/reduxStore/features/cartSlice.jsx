@@ -11,6 +11,7 @@ const getCartFromLocalStorage = () => {
   }
 };
 
+
 const initialState = {
   cartItems: getCartFromLocalStorage(), // Load from localStorage for guests
   isGuest: !localStorage.getItem("token"), // Check if user is a guest

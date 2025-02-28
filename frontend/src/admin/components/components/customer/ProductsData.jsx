@@ -1,5 +1,6 @@
 export const initialProducts = [
   {
+    
     _id: "67a712b40493f32ef53d85c2",
     name: "low stock dhamaka",
     price: 312,

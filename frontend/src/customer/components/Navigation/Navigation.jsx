@@ -3,6 +3,7 @@ import {
   updateQuantity,
   removeFromCart,
 } from "../../../reduxStore/features/cartSlice";
+
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Fragment, useState, useEffect } from "react";

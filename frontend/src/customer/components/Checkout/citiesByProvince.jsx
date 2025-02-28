@@ -5,6 +5,7 @@ const citiesByProvince = {
       "Faisalabad",
       "Multan",
       "Sialkot",
+      
       "Gujranwala",
       "Sargodha",
       "Bahawalpur",

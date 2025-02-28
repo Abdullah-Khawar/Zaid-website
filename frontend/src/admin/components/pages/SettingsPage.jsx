@@ -3,6 +3,7 @@ import Header from "../components/common/Header";
 import Profile from "../components/settings/Profile";
 
 
+
 const SettingsPage = () => {
 	return (
 		<div className='flex-1 overflow-auto relative z-10 bg-gray-900'>

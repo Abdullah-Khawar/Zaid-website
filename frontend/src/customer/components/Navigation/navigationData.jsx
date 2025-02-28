@@ -5,6 +5,7 @@ export default navigation = {
         name: "Women",
         featured: [
           {
+            
             name: "New Arrivals",
             href: "#",
             imageSrc:

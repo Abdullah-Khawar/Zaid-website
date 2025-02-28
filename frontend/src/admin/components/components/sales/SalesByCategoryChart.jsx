@@ -4,6 +4,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recha
 
 const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff8042", "#0088FE"];
 
+
 const SalesByCategoryChart = () => {
   const [salesByCategory, setSalesByCategory] = useState([]);
   const [loading, setLoading] = useState(true);

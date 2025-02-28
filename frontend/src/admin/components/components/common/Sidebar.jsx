@@ -4,6 +4,7 @@ import LocationCityIcon from '@mui/icons-material/LocationCity';
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+
 const SIDEBAR_ITEMS = [
 	{
 		name: "Overview",

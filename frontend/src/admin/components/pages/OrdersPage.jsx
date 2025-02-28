@@ -8,6 +8,7 @@ import DailyOrders from "../components/orders/DailyOrders";
 import OrderDistribution from "../components/orders/OrderDistribution";
 import OrdersTable from "../components/orders/OrdersTable";
 
+
 const OrdersPage = () => {
   const [orderStats, setOrderStats] = useState(null);
   const [orders, setOrders] = useState([]);

@@ -2,6 +2,7 @@
 export const getUserGrowthByYearAndMonth = (users) => {
     const growthByYear = {};
 
+    
     users.forEach(user => {
         const date = new Date(user.createdAt);
         const year = date.getFullYear();

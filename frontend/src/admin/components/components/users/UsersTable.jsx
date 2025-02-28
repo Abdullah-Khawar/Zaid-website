@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { backendUrl } from "../../../../assets/assets";
 const API_URL = `${backendUrl}/admin/getUsers`;
 
+
 const UsersTable = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [allUsers, setAllUsers] = useState([]);

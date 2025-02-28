@@ -62,6 +62,7 @@ const AddProduct = ({ handleClose }) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
   };
 
+  
   const handleColorChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "imageFiles") {

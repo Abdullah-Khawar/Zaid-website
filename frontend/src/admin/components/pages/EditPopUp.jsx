@@ -55,6 +55,7 @@ const EditPopUp = ({ open, handleClose, product, setProducts }) => {
     imageFiles: [],
     sizes: {},
   });
+  
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const backendUrl = import.meta.env.BACKEND_URL

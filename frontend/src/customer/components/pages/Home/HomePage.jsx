@@ -10,6 +10,7 @@ function HomePage() {
   const [loading, setLoading] = useState(true);
   const backendUrl = import.meta.env.BACKEND_URL
   
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
