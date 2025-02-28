@@ -9,11 +9,14 @@
         }
       }
     ],
-    
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "/index.html"
+        "src": "/assets/(.*)",  
+        "dest": "/assets/$1"  
+      },
+      {
+        "src": "/(.*)",  
+        "dest": "/index.html"  
       }
     ]
   }
