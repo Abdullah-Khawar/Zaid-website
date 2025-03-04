@@ -3,10 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "./reduxStore/store";
-import {
-  setCustomerOrders,
-  fetchUserData,
-} from "./reduxStore/features/userSlice";
+import { setUser, fetchUserData } from "./reduxStore/features/userSlice";
 import "./index.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -52,7 +49,7 @@ const App = () => {
       const storedUser = JSON.parse(localStorage.getItem("user"));
 
       if (storedUser) {
-        dispatch(setUser(storedUser)); // Set stored user in Redux
+        dispatch(setUser(storedUser)); // Correctly set stored user in Redux state
         setLoading(false);
       } else {
         try {
