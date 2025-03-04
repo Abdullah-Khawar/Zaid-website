@@ -38,6 +38,11 @@ app.use('/auth', authRoutes);
 app.use('/admin', adminRoutes);
 app.use("/orders", orderRoutes);
 
+// Add a test endpoint for GET /
+app.get('/', (req, res) => {
+  res.send('Server is up and running');
+});
+
 // Add error-handling middleware
 app.use((err, req, res, next) => {
     console.error('Error occurred:', err.stack);
