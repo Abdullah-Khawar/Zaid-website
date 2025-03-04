@@ -152,6 +152,7 @@ const userSlice = createSlice({
       state.customerOrders = [];
       state.cartItems = [];
       state.currentStep = 1; // Reset step to default on logout
+      localStorage.removeItem("user");
     },
   },
   extraReducers: (builder) => {

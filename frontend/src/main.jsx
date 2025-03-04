@@ -49,9 +49,23 @@ const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      await dispatch(fetchUserData());
-      setLoading(false);
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+
+      if (storedUser) {
+        dispatch(setUser(storedUser)); // Set stored user in Redux
+        setLoading(false);
+      } else {
+        try {
+          const result = await dispatch(fetchUserData()).unwrap();
+          localStorage.setItem("user", JSON.stringify(result)); // Save user in localStorage
+        } catch (error) {
+          console.error("Failed to fetch user:", error);
+        } finally {
+          setLoading(false);
+        }
+      }
     };
+
     fetchData();
   }, [dispatch]);
 

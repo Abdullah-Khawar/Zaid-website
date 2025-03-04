@@ -39,7 +39,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Navigation() {
 
-  const backendUrl = import.meta.env.VITE_BACKEND_URL; // Use VITE_ prefix
+  const backendUrl = import.meta.env.VITE_BACKEND_URL; 
 
 useEffect(()=>{
   console.log("Backend URL in navigation updated:", backendUrl);
