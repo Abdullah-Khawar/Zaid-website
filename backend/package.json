@@ -1,9 +1,9 @@
 {
   "name": "backend",
   "version": "1.0.0",
- "main": "api/server.js", 
+ "main": "src/server.js", 
   "scripts": {
-    "dev": "nodemon api/server.js"
+    "dev": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -30,3 +30,5 @@
   },
   "type": "module"
 }
+
+
