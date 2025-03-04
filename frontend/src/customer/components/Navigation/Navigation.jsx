@@ -34,7 +34,16 @@ import AuthOptions from "./AuthOptions";
 import { debounce } from 'lodash';
 import { useNavigate } from 'react-router-dom';
 
+
+
+
 export default function Navigation() {
+
+  const backendUrl = import.meta.env.BACKEND_URL;
+useEffect(()=>{
+  console.log("Backend URL in navigation:", backendUrl);
+}, [])
+
   const [open, setOpen] = useState(false);
 
   const [query, setQuery] = useState('');

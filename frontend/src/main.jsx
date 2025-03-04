@@ -71,7 +71,7 @@ const App = () => {
       <ToastContainer position="top-right" autoClose={2000} />
       <Routes>
         {/* Public Routes */}
-        <Route path="" element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
