@@ -42,7 +42,7 @@ export default function Navigation() {
   const backendUrl = import.meta.env.VITE_BACKEND_URL; // Use VITE_ prefix
 
 useEffect(()=>{
-  console.log("Backend URL in navigation:", backendUrl);
+  console.log("Backend URL in navigation updated:", backendUrl);
 }, [])
 
   const [open, setOpen] = useState(false);
