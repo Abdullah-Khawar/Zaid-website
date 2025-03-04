@@ -38,6 +38,12 @@ app.use('/auth', authRoutes);
 app.use('/admin', adminRoutes);
 app.use("/orders", orderRoutes);
 
+// Add error-handling middleware
+app.use((err, req, res, next) => {
+    console.error('Error occurred:', err.stack);
+    res.status(500).json({ error: 'Internal Server Error' });
+});
+
 const PORT = process.env.PORT || 3000;
 
 connectDB();
