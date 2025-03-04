@@ -11,7 +11,7 @@ import "./index.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./ProtectedRoute";
-
+import { Navigate } from "react-router-dom";
 // Pages for customers
 import HomePage from "./customer/components/pages/Home/HomePage";
 import ProductDisplayPage from "./customer/components/pages/Home/ProductDisplayPage";
