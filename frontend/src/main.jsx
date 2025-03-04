@@ -10,9 +10,11 @@ import {
 import "./index.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ProtectedRoute from "./ProtectedRoute";
+import { Navigate } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute"; // Import the ProtectedRoute component
 
-// Pages for customers
+
+// Pages for vercel
 import HomePage from "./customer/components/pages/Home/HomePage";
 import ProductDisplayPage from "./customer/components/pages/Home/ProductDisplayPage";
 import Layout from "./customer/components/Layout";
@@ -30,7 +32,6 @@ import Contact from "./customer/components/pages/Home/Contact";
 import UserProfile from "./customer/components/Authentication/ProfilePage/UserProfile";
 import SearchPage from "./customer/components/Navigation/Search/SearchPage";
 import AdminPanel from "./admin/components/AdminPanel";
-import OrderSummary from "./customer/components/Checkout/OrderSummary";
 
 // Admin Pages
 import OverviewPage from "./admin/components/pages/OverviewPage";
@@ -40,37 +41,45 @@ import SalesPage from "./admin/components/pages/SalesPage";
 import OrdersPage from "./admin/components/pages/OrdersPage";
 import SettingsPage from "./admin/components/pages/SettingsPage";
 import AddProduct from "./admin/components/pages/AddProduct";
+import ErrorBoundary from "./customer/components/Product_Thing/ErrorBoundary";
 import ShippingPriceControl from "./admin/components/pages/ShippingPriceControl";
+import OrderSummary from "./customer/components/Checkout/OrderSummary";
 
 const App = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.loggedInUser);
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      await dispatch(fetchUserData());
-      setLoading(false);
-    };
-    fetchData();
-  }, [dispatch]);
+    if (!user) {
+      dispatch(fetchUserData());
+    }
+    setLoading(false);
+  }, [dispatch, user]);
+
+  useEffect(() => {
+    console.log("Current User:", user);
+  }, [user]);
 
   if (loading) {
-    return <div className="loading">Loading...</div>;
+    return <div className="loading">Loading...</div>; // Show loading state while fetching user data
   }
 
   return (
     <BrowserRouter>
       <ToastContainer position="top-right" autoClose={2000} />
       <Routes>
-        {/* Public Routes - Accessible to Everyone */}
+        {/* Public Routes */}
+
+{user && user.role === "customer" && (
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
           <Route path="forgotPassword" element={<ForgotPassword />} />
           <Route path="confirmCode" element={<ConfirmCode />} />
-          <Route path="resetPassword" element={<ResetPassword />} />
+          <RoutAe path="resetPassword" element={<ResetPassword />} />
           <Route path="aboutus" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="products" element={<ProductDisplayPage />} />
@@ -78,60 +87,53 @@ const App = () => {
           <Route path="search" element={<SearchPage />} />
           <Route path="order-summary" element={<OrderSummary />} />
         </Route>
-
+)}
         {/* 🔒 Protected Routes - Require Login */}
-        {user && user.role === "customer" && (
-          <>
-            <Route
-              path="/cart"
-              element={
-                <ProtectedRoute>
-                  <Cart />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/checkout"
-              element={
-                <ProtectedRoute>
-                  <Checkout />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/orderHistory"
-              element={
-                <ProtectedRoute>
-                  <OrderHistoryPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/userProfile"
-              element={
-                <ProtectedRoute>
-                  <UserProfile />
-                </ProtectedRoute>
-              }
-            />
-          </>
-        )}
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <ProtectedRoute>
+              <Checkout />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/orderHistory"
+          element={
+            <ProtectedRoute>
+              <OrderHistoryPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/userProfile"
+          element={
+            <ProtectedRoute>
+              <UserProfile />
+            </ProtectedRoute>
+          }
+        />
 
-        {/* 🔒 Admin Routes */}
-        {user && user.role === "admin" && (
-          <Route path="admin" element={<AdminPanel />}>
-            <Route index element={<OverviewPage />} />
-            <Route path="products" element={<ProductsPage />} />
-            <Route path="add-Products" element={<AddProduct />} />
-            <Route path="users" element={<UsersPage />} />
-            <Route path="sales" element={<SalesPage />} />
-            <Route path="orders" element={<OrdersPage />} />
-            <Route path="shipping-price" element={<ShippingPriceControl />} />
-          </Route>
-        )}
+{user && user.role === "admin" && (
+  <Route path="admin" element={<AdminPanel />}>
+    <Route index element={<OverviewPage />} />
+    <Route path="products" element={<ProductsPage />} />
+    <Route path="add-Products" element={<AddProduct />} />
+    <Route path="users" element={<UsersPage />} />
+    <Route path="sales" element={<SalesPage />} />
+    <Route path="orders" element={<OrdersPage />} />
+    <Route path="shipping-price" element={<ShippingPriceControl/>} />
+  </Route>
+)}
 
-        {/* Redirect unknown routes */}
-        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );
