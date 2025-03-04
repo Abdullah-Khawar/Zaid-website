@@ -38,8 +38,8 @@ app.use('/auth', authRoutes);
 app.use('/admin', adminRoutes);
 app.use("/orders", orderRoutes);
 
-// Add a test endpoint for GET /
-app.get('/', (req, res) => {
+// Replace the GET '/' test endpoint with a health check endpoint to avoid conflicts
+app.get('/health', (req, res) => {
   res.send('Server is up and running');
 });
 
