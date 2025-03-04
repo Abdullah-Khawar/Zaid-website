@@ -2,15 +2,15 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
-import connectDB from './src/config/mongoDB.js';
-import adminRoutes from './src/routers/ProductsRoutes/AdminProduct.router.js';
-import userRoutes from  './src/routers/ProductsRoutes/UserProduct.router.js';
+import connectDB from '../src/config/mongoDB.js';
+import adminRoutes from '../src/routers/ProductsRoutes/AdminProduct.router.js';
+import userRoutes from  '../src/routers/ProductsRoutes/UserProduct.router.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import passport from 'passport';
-import authRoutes from './src/routers/Users/auth.router.js';
-import orderRoutes from './src/routers/ProductsRoutes/order.route.js';
+import authRoutes from '../src/routers/Users/auth.router.js';
+import orderRoutes from '../src/routers/ProductsRoutes/order.route.js';
 
 const app = express();
 
