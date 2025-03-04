@@ -17,7 +17,6 @@ const app = express();
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
 
-
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || "http://localhost:5173", // Allow frontend domain
@@ -26,7 +25,6 @@ app.use(
     allowedHeaders: "Content-Type,Authorization",
   })
 );
-
 
 app.use(cookieParser());
 app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: false }));
@@ -38,18 +36,11 @@ app.use('/', userRoutes);
 app.use('/auth', authRoutes);
 // app.use("/uploads", express.static("public"));
 app.use('/admin', adminRoutes);
-
 app.use("/orders", orderRoutes);
-
 
 const PORT = process.env.PORT || 3000;
 
 connectDB();
-
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
-
 
 // Export app for Vercel
 export default app;
