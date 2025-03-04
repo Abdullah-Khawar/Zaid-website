@@ -20,12 +20,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow frontend to communicate
+    origin: process.env.FRONTEND_URL || "http://localhost:5173", // Allow frontend domain
     credentials: true, // Allow cookies & authentication headers
     methods: "GET,POST,PUT,PATCH,DELETE",
     allowedHeaders: "Content-Type,Authorization",
   })
 );
+
 
 app.use(cookieParser());
 app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: false }));
@@ -34,7 +35,7 @@ app.use(passport.session());
 
 // Routes
 app.use('/auth', authRoutes);
-app.use("/uploads", express.static("public"));
+// app.use("/uploads", express.static("public"));
 app.use('/admin', adminRoutes);
 app.use('/', userRoutes);
 app.use("/orders", orderRoutes);
