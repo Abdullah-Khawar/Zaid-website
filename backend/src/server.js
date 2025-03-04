@@ -17,14 +17,26 @@ const app = express();
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
 
+const allowedOrigins = [
+  process.env.FRONTEND_URL || "http://localhost:5173",
+  "https://zaid-website-frontend-git-main-abdullah-s-projects-37f00909.vercel.app", // Add Vercel preview domain
+];
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173", // Allow frontend domain
-    credentials: true, // Allow cookies & authentication headers
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("CORS policy does not allow this origin!"));
+      }
+    },
+    credentials: true,
     methods: "GET,POST,PUT,PATCH,DELETE",
     allowedHeaders: "Content-Type,Authorization",
   })
 );
+
 
 app.use(cookieParser());
 app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: false }));
