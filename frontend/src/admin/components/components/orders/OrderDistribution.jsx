@@ -8,7 +8,7 @@ const COLORS = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#FED766"];
 const OrderDistribution = () => {
   const [orderStatusData, setOrderStatusData] = useState([]);
 
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   
   const fetchOrderStatusDistribution = async () => {
     try {

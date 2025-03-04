@@ -28,7 +28,7 @@ function Login() {
     });
   };
  
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
 
   const handleSubmit = async (e) => {
     e.preventDefault();

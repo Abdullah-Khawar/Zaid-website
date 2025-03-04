@@ -14,7 +14,7 @@ export default function ProfileDropdown() {
   const dispatch = useDispatch();
   const navigate = useNavigate(); // Initialize useNavigate
 
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   
   
   const handleLogout = async () => {

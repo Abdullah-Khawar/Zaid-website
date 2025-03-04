@@ -37,7 +37,7 @@ function ProductOverview() {
   const [selectedColorData, setSelectedColorData] = useState(null);
   const [showSizeChart, setShowSizeChart] = useState(false);
 
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
 
   
   useEffect(() => {

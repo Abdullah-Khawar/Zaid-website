@@ -6,7 +6,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 const DailyOrders = () => {
   const [dailyOrdersData, setDailyOrdersData] = useState([]);
 
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
 
   // Fetch optimized daily order counts
   const fetchDailyOrders = async () => {

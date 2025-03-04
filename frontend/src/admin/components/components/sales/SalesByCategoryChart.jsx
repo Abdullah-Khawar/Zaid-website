@@ -10,7 +10,7 @@ const SalesByCategoryChart = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   
 useEffect(() => {
   const fetchSalesData = async () => {

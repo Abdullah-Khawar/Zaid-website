@@ -8,7 +8,7 @@ function HomePage() {
   const [womenClothingProducts, setWomenClothingProducts] = useState([]);
   const [otherProducts, setOtherProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   
   
   useEffect(() => {

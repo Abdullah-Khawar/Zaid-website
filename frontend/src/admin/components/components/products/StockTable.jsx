@@ -13,7 +13,7 @@ const StockTable = () => {
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(''); // Error state
 
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
 
   // Get sales data by year and month
   const salesDataByYear = useMemo(() => getSalesByYearAndMonth(orderHistoryData), [orderHistoryData]);

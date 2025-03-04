@@ -10,7 +10,7 @@ const OrdersTable = () => {
   const [selectedOrder, setSelectedOrder] = useState(null); 
   const [openModal, setOpenModal] = useState(false);
   const [statusFilter, setStatusFilter] = useState(""); // State for status filter
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   
   
   useEffect(() => {

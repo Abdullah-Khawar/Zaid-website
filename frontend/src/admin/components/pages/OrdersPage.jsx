@@ -13,7 +13,7 @@ const OrdersPage = () => {
   const [orderStats, setOrderStats] = useState(null);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   useEffect(() => {
     const fetchOrderData = async () => {
       try {

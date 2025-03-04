@@ -46,7 +46,7 @@ const AddProduct = ({ handleClose }) => {
     ],
   });
 
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
 
   const sizes = ["XS", "S", "M", "L", "XL"];
 

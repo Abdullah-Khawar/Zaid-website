@@ -58,7 +58,7 @@ const EditPopUp = ({ open, handleClose, product, setProducts }) => {
   
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   
   useEffect(() => {
     setEditedProduct({ ...product });

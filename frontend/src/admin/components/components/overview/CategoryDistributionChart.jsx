@@ -10,7 +10,7 @@ const CategoryDistributionChart = () => {
   const [categoryData, setCategoryData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   useEffect(() => {
     const fetchCategoryData = async () => {
       try {

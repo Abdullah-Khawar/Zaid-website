@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function ProductCard({ product }) {
 
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   
   // Ensure product.price is a string before using .replace()
   const originalPrice = product?.price

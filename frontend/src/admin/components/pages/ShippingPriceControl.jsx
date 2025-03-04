@@ -22,7 +22,7 @@ const ShippingPriceControl = () => {
   const [shippingPrices, setShippingPrices] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [editingId, setEditingId] = useState(null);
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   useEffect(() => {
     const fetchShippingPrices = async () => {
       try {

@@ -8,7 +8,7 @@ function ConfirmCode() {
   const [resending, setResending] = useState(false);
   const [timer, setTimer] = useState(60); // 1-minute timer
   const navigate = useNavigate();
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   // Retrieve email from session storage
   const email = sessionStorage.getItem("resetEmail");
 

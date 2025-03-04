@@ -19,7 +19,7 @@ const ShoppingCart = () => {
   const loggedInUser = useSelector((state) => state.user.loggedInUser);
   const cartItems = useSelector((state) => state.cart.cartItems || []); // Default to empty array
   const customerOrders = useSelector((state) => state.user.customerOrders);
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   
   
   // Function to move to the next step

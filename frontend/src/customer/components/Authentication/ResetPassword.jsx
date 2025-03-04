@@ -26,7 +26,7 @@ function ResetPassword() {
     }
   };
 
-  const API_URL = import.meta.env.VITE_API_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,7 +38,7 @@ function ResetPassword() {
     }
 
     try {
-      const response = await fetch(`${API_URL}/auth/reset-password`, {
+      const response = await fetch(`${backendUrl}/auth/reset-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -12,7 +12,7 @@ function ForgotPassword() {
     setEmail(e.target.value);
   };
 
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);

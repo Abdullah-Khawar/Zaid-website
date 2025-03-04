@@ -28,7 +28,7 @@ const Checkout = () => {
   const cartItems = useSelector((state) => state.cart.cartItems || []);
   const customerOrders = useSelector((state) => state.user.customerOrders);
   const dispatch = useDispatch();
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   const [shippingPrice, setShippingPrice] = useState(0);
 
   // Fetch Shipping Price when Province or City changes

@@ -18,7 +18,7 @@ const OverviewPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [orderStats, setOrderStats] = useState(null);
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   // Fetch users from the backend
   
   useEffect(() => {

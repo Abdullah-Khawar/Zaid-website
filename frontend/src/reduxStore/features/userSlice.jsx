@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit';
 
-const backendUrl = import.meta.env.BACKEND_URL; 
+const backendUrl = import.meta.env.VITE_BACKEND_URL; 
 
 
 // Async action to fetch user data dynamically

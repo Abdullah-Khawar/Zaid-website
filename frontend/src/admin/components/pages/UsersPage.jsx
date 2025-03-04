@@ -12,7 +12,7 @@ import UserGrowthChart from "../components/users/UserGrowthChart";
 const UsersPage = () => {
   const [userList, setUserList] = useState([]);
   // const API_URL = "http://localhost:5000/admin/getUsers"; 
-  const backendUrl = import.meta.env.BACKEND_URL
+  const backendUrl = import.meta.env.VITE_BACKEND_URL
   // Fetch users from the backend
   useEffect(() => {
     const fetchUsers = async () => {
