@@ -33,11 +33,12 @@ app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUniniti
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('/', userRoutes);
 // Routes
 app.use('/auth', authRoutes);
 // app.use("/uploads", express.static("public"));
 app.use('/admin', adminRoutes);
-app.use('/', userRoutes);
+
 app.use("/orders", orderRoutes);
 
 
@@ -45,9 +46,9 @@ const PORT = process.env.PORT || 3000;
 
 connectDB();
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
 
 
 // Export app for Vercel
