@@ -23,7 +23,7 @@ function Signup() {
     });
   };
 
-  const API_URL = import.meta.env.VITE_API_URL; 
+  const backendUrl = import.meta.env.BACKEND_URL; 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ function Signup() {
     }
   
     try {
-      const response = await fetch(`${API_URL}/auth/signup`, {
+      const response = await fetch(`${backendUrl}/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

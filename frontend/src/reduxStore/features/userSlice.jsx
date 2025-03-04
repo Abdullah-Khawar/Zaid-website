@@ -1,9 +1,12 @@
 import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit';
 
+const backendUrl = import.meta.env.BACKEND_URL; 
+
+
 // Async action to fetch user data dynamically
 export const fetchUserData = createAsyncThunk("user/fetchUserData", async (_, { rejectWithValue }) => {
   try {
-    const response = await fetch("http://localhost:5000/profile", {
+    const response = await fetch(`${backendUrl}/profile`, {
       credentials: "include", // Ensures cookies (token) are sent
     });
 
@@ -24,7 +27,7 @@ export const fetchUserData = createAsyncThunk("user/fetchUserData", async (_, { 
 // Async action to fetch customer orders
 export const fetchCustomerOrders = createAsyncThunk("user/fetchCustomerOrders", async (_, { rejectWithValue }) => {
   try {
-    const response = await fetch("http://localhost:5000/orders", {
+    const response = await fetch(`${backendUrl}/orders`, {
       credentials: "include",
     });
 
@@ -49,7 +52,7 @@ export const fetchCartItems = createAsyncThunk(
         throw new Error("User is not logged in or missing user ID");
       }
 
-      const response = await fetch(`http://localhost:5000/cart?userId=${user._id}`, {
+      const response = await fetch(`${backendUrl}/cart?userId=${user._id}`, {
         credentials: "include",
       });
 
