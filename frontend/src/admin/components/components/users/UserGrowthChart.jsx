@@ -2,19 +2,17 @@ import { useEffect, useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { motion } from "framer-motion";
 import { getUserGrowthByYearAndMonth } from "./getUserGrowthByYearAndMonth";
-import { backendUrl } from "../../../../assets/assets";
-const API_URL = `${backendUrl}/admin/getUsers`;
-
 
 const UserGrowthChart = () => {
     const [userGrowthData, setUserGrowthData] = useState([]);
     const [selectedYear, setSelectedYear] = useState("");
     const [loading, setLoading] = useState(true);
+    const backendUrl = `${backendUrl}/admin/getUsers`;
 
     useEffect(() => {
         const fetchUserGrowthData = async () => {
             try {
-                const response = await fetch(API_URL);
+                const response = await fetch(backendUrl);
                 const users = await response.json();
                 const formattedData = getUserGrowthByYearAndMonth(users);
                 setUserGrowthData(formattedData);

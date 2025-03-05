@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { toast } from "react-toastify";
-import { backendUrl } from "../../../../assets/assets";
-const API_URL = `${backendUrl}/admin/getUsers`;
-
 
 const UsersTable = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [allUsers, setAllUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
+    const backendUrl = `${backendUrl}/admin/getUsers`;
+
 
     useEffect(() => {
         fetchUsers();
@@ -17,7 +16,7 @@ const UsersTable = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch(API_URL);
+            const response = await fetch(backendUrl);
             if (!response.ok) {
                 throw new Error("Failed to fetch users data");
             }

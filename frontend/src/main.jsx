@@ -87,6 +87,7 @@ const App = () => {
           <Route path="products/:_id" element={<ProductOverview />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="order-summary" element={<OrderSummary />} />
+          <Route path="userProfile" element= {<UserProfile />} />
         </Route>
 
         {/* 🔒 Protected Routes for Customers */}
@@ -95,7 +96,7 @@ const App = () => {
             <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
             <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
             <Route path="/orderHistory" element={<ProtectedRoute><OrderHistoryPage /></ProtectedRoute>} />
-            <Route path="/userProfile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
+          
           </>
         )}
 

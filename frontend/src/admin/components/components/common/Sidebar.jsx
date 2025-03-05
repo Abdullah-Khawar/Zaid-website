@@ -19,7 +19,6 @@ const SIDEBAR_ITEMS = [
 	
 	{ name: "Add Product", icon: CirclePlus, color: "#8B5CF6", href: "/admin/add-products" },
 	{ name: "Users", icon: Users, color: "#EC4899", href: "/admin/users" },
-	{ name: "Settings", icon: Settings, color: "#6EE7B7", href: "/admin/settings" },
 	{ name: "Ship Price", icon: LocationCityIcon, color: "#6EE7B7", href: "/admin/shipping-price" },
 
 
