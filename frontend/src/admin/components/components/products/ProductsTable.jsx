@@ -13,6 +13,9 @@ const ProductsTable = ({products}) => {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState("");
+  
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 
   useEffect(() => { 
     setProducts(products);
@@ -97,6 +100,8 @@ const ProductsTable = ({products}) => {
 
 
 const ConfirmDialog = ({ message, onConfirm, onCancel }) => {
+
+ 
   return (
     <div className="confirm-dialog p-4 bg-gray-800 text-white rounded-lg shadow-lg">
       <p className="mb-4">{message}</p>
@@ -139,7 +144,7 @@ const showConfirmDialog = (message, onConfirm) => {
   const handleDelete = async (_id) => {
     showConfirmDialog("Are you sure you want to delete this product?", async () => {
       try {
-        const response = await fetch(`http://localhost:5000/admin/products/${_id}`, {
+        const response = await fetch(`${backendUrl}/admin/products/${_id}`, {
           method: "DELETE",
         });
   
