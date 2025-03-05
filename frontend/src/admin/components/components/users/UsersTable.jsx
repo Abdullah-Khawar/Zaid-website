@@ -87,7 +87,7 @@ const UsersTable = () => {
 
     const confirmDelete = async (userId, toastId) => {
         try {
-            const response = await fetch(`${backendUrl}/${userId}`, {
+            const response = await fetch(`${backendUrl}/admin/getUsers/${userId}`, {
                 method: "DELETE",
             });
 
