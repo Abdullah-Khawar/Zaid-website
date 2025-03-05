@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "./reduxStore/store";
-import { setUser, fetchUserData } from "./reduxStore/features/userSlice";
+import { setUser } from "./reduxStore/features/userSlice";
 import "./index.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./ProtectedRoute";
-import { Navigate } from "react-router-dom";
-// Pages for customers
+
+// Customer Pages
 import HomePage from "./customer/components/pages/Home/HomePage";
 import ProductDisplayPage from "./customer/components/pages/Home/ProductDisplayPage";
 import Layout from "./customer/components/Layout";
@@ -42,28 +42,27 @@ import ShippingPriceControl from "./admin/components/pages/ShippingPriceControl"
 const App = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.loggedInUser);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  // ✅ Handle user login
+  const handleLogin = (user) => {
+    if (user) {
+      setIsLoggedIn(true);
+      dispatch(setUser(user)); // ✅ Update Redux store
+      localStorage.setItem("user", JSON.stringify(user)); // ✅ Store in localStorage
+    }
+  };
+
+  // ✅ Persist login across page refreshes
   useEffect(() => {
-    const fetchData = async () => {
-      const storedUser = JSON.parse(localStorage.getItem("user"));
-
-      if (storedUser) {
-        dispatch(setUser(storedUser)); // Correctly set stored user in Redux state
-        setLoading(false);
-      } else {
-        try {
-          const result = await dispatch(fetchUserData()).unwrap();
-          localStorage.setItem("user", JSON.stringify(result)); // Save user in localStorage
-        } catch (error) {
-          console.error("Failed to fetch user:", error);
-        } finally {
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchData();
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      dispatch(setUser(parsedUser));
+      setIsLoggedIn(true);
+    }
+    setLoading(false);
   }, [dispatch]);
 
   if (loading) {
@@ -74,11 +73,11 @@ const App = () => {
     <BrowserRouter>
       <ToastContainer position="top-right" autoClose={2000} />
       <Routes>
-        {/* Public Routes - Accessible to Everyone */}
+        {/* Public Routes */}
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login handleLogin={handleLogin} />} />
           <Route path="forgotPassword" element={<ForgotPassword />} />
           <Route path="confirmCode" element={<ConfirmCode />} />
           <Route path="resetPassword" element={<ResetPassword />} />
@@ -90,46 +89,18 @@ const App = () => {
           <Route path="order-summary" element={<OrderSummary />} />
         </Route>
 
-        {/* 🔒 Protected Routes - Require Login */}
-        {user && user.role === "customer" && (
+        {/* 🔒 Protected Routes for Customers */}
+        {user?.role === "customer" && (
           <>
-            <Route
-              path="/cart"
-              element={
-                <ProtectedRoute>
-                  <Cart />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/checkout"
-              element={
-                <ProtectedRoute>
-                  <Checkout />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/orderHistory"
-              element={
-                <ProtectedRoute>
-                  <OrderHistoryPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/userProfile"
-              element={
-                <ProtectedRoute>
-                  <UserProfile />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+            <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
+            <Route path="/orderHistory" element={<ProtectedRoute><OrderHistoryPage /></ProtectedRoute>} />
+            <Route path="/userProfile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
           </>
         )}
 
         {/* 🔒 Admin Routes */}
-        {user && user.role === "admin" && (
+        {user?.role === "admin" && (
           <Route path="admin" element={<AdminPanel />}>
             <Route index element={<OverviewPage />} />
             <Route path="products" element={<ProductsPage />} />
@@ -141,14 +112,14 @@ const App = () => {
           </Route>
         )}
 
-        {/* Redirect unknown routes */}
+        {/* 🔄 Redirect unknown routes */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );
 };
 
-// Render the app
+// ✅ Render the app properly
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <App />

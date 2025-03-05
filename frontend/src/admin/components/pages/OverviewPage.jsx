@@ -39,7 +39,7 @@ const OverviewPage = () => {
   // Fetch products from the backend
   const fetchProducts = useCallback(async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/products`);
+      const response = await fetch(`${backendUrl}/products`);
       if (!response.ok) throw new Error("Failed to fetch products");
       const data = await response.json();
       setProducts(data);
@@ -59,7 +59,7 @@ const OverviewPage = () => {
   useEffect(() => {
     const fetchOrderData = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/orders/stats`);
+        const response = await fetch(`${backendUrl}/orders/stats`);
         if (!response.ok) throw new Error("Failed to fetch order stats");
         const statsData = await response.json();
         setOrderStats(statsData);

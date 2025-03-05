@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { setUser } from "../../../reduxStore/features/userSlice";
 import { useDispatch } from "react-redux";
 
-function Login() {
+function Login({handleLogin}) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -32,46 +32,47 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    
+
     try {
-      const response = await fetch(`${backendUrl}/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include", // Ensure cookies are sent
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
-  
-      const data = await response.json();
-  
-      if (!response.ok) {
-        throw new Error(data.message || "Login failed");
-      }
-  
-      if (data.user) {
+        const response = await fetch(`${backendUrl}/auth/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include", // Ensure cookies are sent
+            body: JSON.stringify({
+                email: formData.email,
+                password: formData.password,
+            }),
+        });
+
+        const data = await response.json();
+
+        // Throw error if login failed
+        if (!response.ok) {
+            throw new Error(data.message || "Login failed");
+        }
+
+        // Persist login
+        localStorage.setItem("user", JSON.stringify(data.user));
+        handleLogin(data.user); // Update parent state (from main.jsx)
         dispatch(setUser(data.user)); // Store user in Redux
-      }
-  
-      if (formData.rememberMe) {
-        localStorage.setItem("email", formData.email);
-      } else {
-        localStorage.removeItem("email");
-      }
-  
-      alert("Login Successful!");
-      navigate("/"); // Redirect to home page
-  
+
+        // Handle "Remember Me" functionality
+        if (formData.rememberMe) {
+            localStorage.setItem("email", formData.email);
+        } else {
+            localStorage.removeItem("email");
+        }
+
+        alert("Login Successful!");
+        navigate("/"); // Redirect to home page
     } catch (error) {
-      console.error("Login Error:", error);
-      alert(error.message);
+        console.error("Login Error:", error);
+        alert(error.message);
     }
-  };
-  
+};
+
 
   // Handle Google Login Redirect
   const handleGoogleLogin = () => {
@@ -145,6 +146,7 @@ function Login() {
                 className="w-full cursor-pointer text-white font-medium rounded-lg text-sm px-5 py-3 
              bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-500 
              transition-all duration-300 ease-in-out transform hover:scale-101 shadow-lg"
+            
               >
                 Sign In
               </button>
