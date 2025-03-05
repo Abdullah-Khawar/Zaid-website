@@ -7,12 +7,12 @@ const UserGrowthChart = () => {
     const [userGrowthData, setUserGrowthData] = useState([]);
     const [selectedYear, setSelectedYear] = useState("");
     const [loading, setLoading] = useState(true);
-    const backendUrl = `${backendUrl}/admin/getUsers`;
+    const backendUrl = import.meta.env.VITE_BACKEND_URL
 
     useEffect(() => {
         const fetchUserGrowthData = async () => {
             try {
-                const response = await fetch(backendUrl);
+                const response = await fetch(`${backendUrl}/admin/getUsers`);
                 const users = await response.json();
                 const formattedData = getUserGrowthByYearAndMonth(users);
                 setUserGrowthData(formattedData);

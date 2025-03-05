@@ -7,7 +7,8 @@ const UsersTable = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [allUsers, setAllUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
-    const backendUrl = `${backendUrl}/admin/getUsers`;
+    const backendUrl = import.meta.env.VITE_BACKEND_URL
+
 
 
     useEffect(() => {
@@ -16,7 +17,7 @@ const UsersTable = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch(backendUrl);
+            const response = await fetch(`${backendUrl}/admin/getUsers`);
             if (!response.ok) {
                 throw new Error("Failed to fetch users data");
             }
@@ -86,7 +87,7 @@ const UsersTable = () => {
 
     const confirmDelete = async (userId, toastId) => {
         try {
-            const response = await fetch(`${API_URL}/${userId}`, {
+            const response = await fetch(`${backendUrl}/${userId}`, {
                 method: "DELETE",
             });
 
