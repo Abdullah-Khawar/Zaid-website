@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const allowedOrigins = [
   process.env.FRONTEND_URL || "http://localhost:5173",
-  "https://zaid-website-frontend-git-main-abdullah-s-projects-37f00909.vercel.app", // Add Vercel preview domain
+  "https://zefton.vercel-git-main-abdullah-s-projects-37f00909.vercel.app", // Add Vercel preview domain
 ];
 
 app.use(
