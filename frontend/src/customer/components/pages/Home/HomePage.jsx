@@ -15,21 +15,21 @@ function HomePage() {
     const fetchProducts = async () => {
       try {
         const menResponse = await axios.get(`${backendUrl}/productsFilter`, {
-          params: { category: "Clothing", subCategory: "Men-Stitched" },
+          params: { category: "Clothes", subCategory: "Men-Stitched" },
         });
 
         const menUnstitchedResponse = await axios.get(`${backendUrl}/productsFilter`, {
-          params: { category: "Clothing", subCategory: "Men-Unstitched" },
+          params: { category: "Clothes", subCategory: "Men-Unstitched" },
         });
 
         setMenClothingProducts([...menResponse.data, ...menUnstitchedResponse.data]);
 
         const womenResponse = await axios.get(`${backendUrl}/productsFilter`, {
-          params: { category: "Clothing", subCategory: "Women-Stitched" },
+          params: { category: "Clothes", subCategory: "Women-Stitched" },
         });
 
         const womenUnstitchedResponse = await axios.get(`${backendUrl}/productsFilter`, {
-          params: { category: "Clothing", subCategory: "Women-Unstitched" },
+          params: { category: "Clothes", subCategory: "Women-Unstitched" },
         });
 
         setWomenClothingProducts([...womenResponse.data, ...womenUnstitchedResponse.data]);
