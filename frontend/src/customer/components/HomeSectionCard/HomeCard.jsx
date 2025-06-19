@@ -25,8 +25,8 @@ function HomeCard({ cardWidth, cardHeight, fontSizeTitle, fontSizeDescription, d
       )}
 
       {/* Image */}
-      <img
-        src={data.colors?.[0]?.imageSrc || ""}
+       <img
+        src={data.colors?.[0].images[0].src || ""}
         alt={data.name}
         className="w-full h-65 object-cover"
       />
